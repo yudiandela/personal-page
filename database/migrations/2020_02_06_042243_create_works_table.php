@@ -18,7 +18,9 @@ class CreateWorksTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('type');
-            $table->timestamp('deadline')->nullable();
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('due_at')->nullable();
+            $table->enum('status', ['comingsoon', 'progress', 'pending', 'complete'])->default('comingsoon');
             $table->softDeletes();
             $table->timestamps();
 

@@ -1,4 +1,4 @@
-@extends('layouts.master-auth')
+@extends('layouts.master')
 
 @section('content')
 <div class="account-pages mt-5 mb-5">
