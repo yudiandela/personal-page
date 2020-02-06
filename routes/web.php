@@ -10,9 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::view('/', 'welcome');
 
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
-    Route::view('/', 'welcome');
+    Route::middleware('role:owner|admin')->namespace('Admin')->group(function () {
+        Route::get('admin', 'DashboardController@index')->name('admin.dashboard');
+    });
 });

@@ -72,7 +72,10 @@
             @if (Route::has('login'))
             <div class="top-right links">
                 @auth
-                <a href="{{ url('/home') }}">Home</a>
+                @if (Auth::user()->role !== 'user')
+                <a href="{{ url('/admin') }}">Admin</a>
+                @endif
+
                 <a href="{{ url('/logout') }}"
                     onclick="event.preventDefault(); document.getElementById('form-logout').submit();">
                     Logout
